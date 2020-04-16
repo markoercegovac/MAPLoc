@@ -1,0 +1,300 @@
+﻿<Window x:Class="WpfApp1.Forma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:model="clr-namespace:WpfApp1.model"
+        
+        xmlns:local="clr-namespace:WpfApp1"
+        
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        model:HelpProvider.HelpKey="index"
+        
+        Title="Unos novog lokala" Height="720" Width="1020"  HorizontalAlignment="Center" VerticalAlignment="Center" >
+    <Window.Background>
+        <ImageBrush AlignmentX="Center" AlignmentY="Center" ImageSource="img/mitrovica6.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Window.DataContext>
+        <model:Lokali></model:Lokali>
+    </Window.DataContext>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" >
+
+        <Grid.Background>
+            <SolidColorBrush Color="#FF0A0707" Opacity="0.8"/>
+        </Grid.Background>
+    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+            
+            <ColumnDefinition Width="200" />
+            
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+
+        </Grid.ColumnDefinitions>
+        
+
+        <Label Grid.Column="1" Foreground="White" FontSize="20" Grid.ColumnSpan="4" HorizontalAlignment="Center" >DODAVANJE LOKALA</Label>
+        <Label HorizontalAlignment="Left"  Foreground="White" Grid.Row="1" Grid.Column="0">Naziv lokala :</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="nazTxt" >
+            <TextBox.Text>
+                <Binding Path="Naziv" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <model:Validacija ValidationStep="RawProposedValue"/>
+                        <model:Imena minimumimena="2"/>
+                    </Binding.ValidationRules>
+                </Binding>
+
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+                
+                
+            </Validation.ErrorTemplate>
+            
+
+        </TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Foreground="Red" >
+           
+            
+        </TextBlock>
+        <Label Grid.Row="3" Grid.Column="0" Foreground="White">Tip lokala:</Label>
+        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="tipCombo">
+            <ComboBox.Text>
+                <Binding Path="Tip" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <model:Empty ></model:Empty>
+                    </Binding.ValidationRules>
+                </Binding>
+
+            </ComboBox.Text>
+
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+
+
+            </Validation.ErrorTemplate>
+
+        </ComboBox>
+
+
+        <Button  Background="White" Grid.Row="3" Grid.Column="2" Height="25" Width="25"  HorizontalAlignment="Left" Margin="5,0,0,0" Click="dodajTip"  x:Name="buttonDodajTip">
+            <Button.ToolTip>
+                <TextBlock Height="100" Width="100" TextWrapping="Wrap">Dugme za dodavanje tipa, ono vam je onemoguceno dok ne obrisete trenutni tip</TextBlock>
+            </Button.ToolTip>
+            <Image Source="img/file.png" x:Name="slikaDodavanjaTipa"/>
+        </Button>
+
+        <Button  Background="White" Grid.Row="3" Grid.Column="2" Height="25" Width="25"  ToolTip="Dugme izmene tipa"  HorizontalAlignment="Center" Margin="0,0,100,0" Click="izmeniTip" >
+            <Image Source="img/edit.png" />
+        </Button>
+
+        <Button  Background="White" Grid.Row="3" Grid.Column="2" Height="25" Width="25" ToolTip="Dugme brisanja tipa"  HorizontalAlignment="Right" Margin="0,0,100,0" Click="ukloniTip">
+
+            <Image Source="img/remove.png" />
+        </Button>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Foreground="Red" Grid.ColumnSpan="3"></TextBlock>
+        <Label  Foreground="White" Content="Opis:" Grid.Column="0" Height="50" Grid.Row="5" />
+        <ScrollViewer Grid.Column="1" Grid.Row="5" CanContentScroll="True" Height="50">
+            <TextBox Grid.Column="1" Grid.Row="5"  Background="White" x:Name="opisTxt" TextWrapping="Wrap"    />
+        </ScrollViewer>
+        <TextBlock Grid.Column="1" Grid.Row="6" Foreground="Red" Grid.ColumnSpan="3"/>
+        <Label Foreground="White" Content="ID:" Grid.Column="0" Grid.Row="7" />
+        <TextBox Grid.Column="1" Grid.Row="7"  x:Name="idTxt"   MouseEnter="nevidi">
+            <TextBox.Text>
+                <Binding Path="Id" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <model:Validacija minimumKaraktera="2" ></model:Validacija>
+                    </Binding.ValidationRules>
+                </Binding>
+            
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1" ></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                    </Grid>
+                </ControlTemplate>
+
+
+            </Validation.ErrorTemplate>
+
+
+        </TextBox>
+        <TextBlock Foreground="Red" Grid.Column="1" Grid.Row="8"  x:Name="txtBoxID" Visibility="Hidden">NISTE UNELI SVE PODATKE
+
+
+        </TextBlock>
+        <Label Grid.Row="8" Grid.Column="0" ></Label>
+        <ComboBox Grid.Row="9" Grid.Column="1" x:Name="etiketaCombo"/>
+        <Button  Background="White" Grid.Row="9" Grid.Column="2" Height="25" Width="25" HorizontalAlignment="Left" Margin="5,0,0,0" ToolTip="Dodaj etiketu" Click="dodajEtiketu" x:Name="izmeniDugmeEtiketa" >
+            <Image Source="img/file.png" x:Name="slikaDodavanjaEtikete" />
+        </Button>
+        <Button  Background="White" Grid.Row="9" Grid.Column="2" Height="25" Width="25" HorizontalAlignment="Center" Margin="0,0,100,0" Click="izmeniEtiketu" >
+            <Image Source="img/edit.png" ToolTip="Izmeni etiketu" />
+        </Button>
+        <Button  Background="White" Grid.Row="9" Grid.Column="2" Height="25" Width="25" HorizontalAlignment="Right" Margin="0,0,100,0" Click="ukloniEtiketu" >
+            <Image Source="img/remove.png" ToolTip="Izbrisi etiketu"/>
+        </Button>
+        <Button   Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="11" Margin="70,0,0,0" Grid.RowSpan="5" Click="dodajSliku"  ToolTip="SLIKA LOKALA" Height="200" Width="200">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Image Name="slikaLokala" />
+        </Button>
+
+        <Label Grid.Column="3" Grid.Row="1" Foreground="White" Grid.ColumnSpan="5" HorizontalAlignment="Center">Dostupnost za hendikepirane:</Label>
+        <ComboBox Grid.Column="4" Grid.Row="2" x:Name="hendikepiraniCombo">
+            <ComboBoxItem Content="DA"/>
+            <ComboBoxItem Content="NE"/>
+        </ComboBox>
+
+        <ComboBox Grid.Column="4" Grid.Row="4" x:Name="pusenjeTxt">
+            <ComboBoxItem>DA</ComboBoxItem>
+            <ComboBoxItem>NE</ComboBoxItem>
+        </ComboBox>
+
+        <ComboBox Grid.Column="4" Grid.Row="5" VerticalAlignment="Bottom" x:Name="kategorijeCombo" >
+            <ComboBoxItem Content="niske"/>
+            <ComboBoxItem Content="srednje"/>
+            <ComboBoxItem Content="visoke"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox Grid.Column="4" Grid.Row="7" VerticalAlignment="Bottom" x:Name="rezervacijeCombo">
+            <ComboBoxItem Content="DA"/>
+            <ComboBoxItem Content="NE"/>
+        </ComboBox>
+        <ComboBox Grid.Column="4" Grid.Row="9" x:Name="alkoholCombo" >
+            <ComboBoxItem Content="ne sluzi" />
+            <ComboBoxItem Content="sluzi do 23h"/>
+            <ComboBoxItem Content="sluzi kasno u noc"/>
+        </ComboBox>
+
+        <Label Content="Dozvoljeno pusenje :" Grid.Column="2" Foreground="White" Grid.ColumnSpan="3" Grid.Row="3" HorizontalAlignment="Right"/>
+        
+        
+        <Label Grid.Column="3" Foreground="White" Grid.Row="7" Content="Rezervacije :" />
+        <Label Content="Kategorije cena :" Foreground="White" Grid.Column="3" Grid.Row="5" VerticalAlignment="Bottom"/>
+       
+        
+        <DatePicker  Grid.Row="11" Grid.Column="4" x:Name="datumDate"/>
+        <Label Content="Alkohol:" Foreground="White" Grid.Column="3" Grid.Row="9"/>
+        
+        <Button Grid.Row="10" Opacity="0" Height="20"></Button>
+        <Label Content="Datum otvaranja :" Foreground="White" Grid.Row="11" Grid.Column="3"/>
+        <Button Grid.Column="5" Grid.Row="13" Click="Button_Click">Dodajte</Button>
+        <Button Grid.Column="0" Grid.Row="12" Height="20" Opacity="0"/>
+        
+        
+
+       
+
+
+
+
+        
+        
+        
+
+       
+
+        <Button  Background="White" Grid.Row="3" Grid.Column="0" Height="25" Width="25" HorizontalAlignment="Right" Margin="0,0,5,0" Click="TabelaTip" ToolTip="Tabela tipova">
+            <Image Source="img/table.png" />
+        </Button>
+
+        <Label Content="Etikete :" Foreground="White" Grid.Row="9" Grid.Column="0"/>
+       
+        <Button  Background="White" Grid.Row="9" Grid.Column="0" Height="25" Width="25" HorizontalAlignment="Right" Margin="0,0,5,0" ToolTip="Tabela etiketa" Click="TabelaEtiketa">
+            <Image Source="img/table.png" />
+        </Button>
+        <Button Grid.Column="0" Grid.Row="13" Content="Odustanite" Click="izmena" ></Button>
+
+
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+</Window>

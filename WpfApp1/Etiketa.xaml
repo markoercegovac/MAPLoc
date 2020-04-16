@@ -1,0 +1,94 @@
+﻿<Window x:Class="WpfApp1.Etiketa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:model="clr-namespace:WpfApp1.model"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Dodavanje etikete" Height="320" Width="400">
+    <Window.Background>
+        <ImageBrush AlignmentX="Center" AlignmentY="Center" ImageSource="img/mitrovica8.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Window.DataContext>
+        <model:Etikete></model:Etikete>
+    </Window.DataContext>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+    </Window.CommandBindings>
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.Background>
+            <SolidColorBrush Color="Black" Opacity="0.8"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            
+        </Grid.ColumnDefinitions>
+
+
+
+
+
+
+
+        <Button Content="Dodajte etiketu" Grid.Column="1" Grid.Row="6" x:Name="buttonDodaj" Click="ButtonDodaj_Click"/>
+        <Label Foreground="white" FontSize="20" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">Dodavanje etikete</Label>
+        <Label Content="ID:" Foreground="White" Grid.Column="0" Grid.Row="1"/>
+        <TextBox x:Name="idTxt" Grid.Row="1" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Id" ValidatesOnDataErrors="True" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <model:Empty minimumimena="2" ></model:Empty>
+                        
+                    </Binding.ValidationRules>
+                </Binding>
+
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1" ></AdornedElementPlaceholder>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding [0].ErrorContent}" Foreground="Red"></TextBlock>
+                    </Grid>
+                </ControlTemplate>
+
+
+            </Validation.ErrorTemplate>
+
+        </TextBox>
+        <Button Opacity="0" Grid.Row="5" Height="20" ></Button>
+        <TextBlock Foreground="Red" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Opis:"  Foreground="White" Grid.Column="0" Grid.Row="4" x:Name="txtOpis"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="optxt"/>
+        <Button Content="Odaberite boju" Click="promeniBoju"   Grid.Column="0" Grid.Row="2" />
+        
+
+    </Grid>
+</Window>

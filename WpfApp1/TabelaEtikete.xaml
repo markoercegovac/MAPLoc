@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfApp1.TabelaEtikete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="TabelaEtikete" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgrMain" ItemsSource="{Binding Path=Etikete}" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Indeks" Width="SizeToCells">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="ID : "/>
+                                <TextBlock Text="{Binding Id}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+               
+                <DataGridTextColumn Header="Opis" Width="SizeToCells" Binding="{Binding Opis}"></DataGridTextColumn>
+               
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+
+    </Grid>
+</Window>

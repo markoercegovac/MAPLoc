@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85BE0190-6EDA-4E94-9E62-A6D1F991FDB5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WpfApp1</RootNamespace>
+    <AssemblyName>WpfApp1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>grb_LV0_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="EditEtiketa2.xaml.cs">
+      <DependentUpon>EditEtiketa2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditEtiketaxaml.xaml.cs">
+      <DependentUpon>EditEtiketaxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditLokali.xaml.cs">
+      <DependentUpon>EditLokali.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditTip2.xaml.cs">
+      <DependentUpon>EditTip2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Etiketa.xaml.cs">
+      <DependentUpon>Etiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forma.xaml.cs">
+      <DependentUpon>Forma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpEtiketa.xaml.cs">
+      <DependentUpon>HelpEtiketa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpMain.xaml.cs">
+      <DependentUpon>HelpMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpViewer.xaml.cs">
+      <DependentUpon>HelpViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelpViewTip.xaml.cs">
+      <DependentUpon>HelpViewTip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IzborEtikete.xaml.cs">
+      <DependentUpon>IzborEtikete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IzborLokala.xaml.cs">
+      <DependentUpon>IzborLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IzborTipaLokala.xaml.cs">
+      <DependentUpon>IzborTipaLokala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="model\Komande.cs" />
+    <Compile Include="model\Etikete.cs" />
+    <Compile Include="model\HelpProvider.cs" />
+    <Compile Include="model\JavaScriptContolHelper.cs" />
+    <Compile Include="model\Lokali.cs" />
+    <Compile Include="model\Podaci.cs" />
+    <Compile Include="model\Slika.cs" />
+    <Compile Include="model\Tipovi.cs" />
+    <Compile Include="model\Validacija.cs" />
+    <Compile Include="Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabelaEtikete.xaml.cs">
+      <DependentUpon>TabelaEtikete.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabelaLokali.xaml.cs">
+      <DependentUpon>TabelaLokali.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TabelaTipova.xaml.cs">
+      <DependentUpon>TabelaTipova.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tip.xaml.cs">
+      <DependentUpon>Tip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TipEdit.xaml.cs">
+      <DependentUpon>TipEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
+    <Page Include="EditEtiketa2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditEtiketaxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditLokali.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTip2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Etiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpEtiketa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpViewTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IzborEtikete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IzborLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IzborTipaLokala.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabelaEtikete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabelaLokali.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabelaTipova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TipEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slika1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slika2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slika3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slika4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slikam.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slika7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\LogoMakr_1fQnNI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\google.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\mapa2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\mapa1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\mapa3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\mapa4.png" />
+    <Resource Include="img\slika5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\slika8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\grb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\rsz_grb.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="img\prim1.png" />
+    <Resource Include="img\tambura.png" />
+    <Resource Include="grb_LV0_icon.ico" />
+    <Resource Include="img\restoran1.JPG" />
+    <Resource Include="img\wheelchair.png" />
+    <Resource Include="img\mitrovica1.jpg" />
+    <Resource Include="img\mitrovica2.jpg" />
+    <Resource Include="img\mitrovica3.jpg" />
+    <Resource Include="img\mitrovica4.jpg" />
+    <Resource Include="img\mitrovica5.jpg" />
+    <Resource Include="img\mitrovica6.png" />
+    <Resource Include="img\mitrovica8.png" />
+    <Resource Include="img\hospital32.png" />
+    <Resource Include="img\hospital512.png" />
+    <Resource Include="img\photo.png" />
+    <Resource Include="img\crkva32.png" />
+    <Resource Include="img\crkva512.png" />
+    <Resource Include="img\gym32.png" />
+    <Resource Include="img\gym512.png" />
+    <Resource Include="img\picerija32.png" />
+    <Resource Include="img\picerija512.png" />
+    <Resource Include="img\skola32.png" />
+    <Resource Include="img\skola512.png" />
+    <Resource Include="img\add-image.png" />
+    <Resource Include="img\edit.png" />
+    <Resource Include="img\rem.png" />
+    <Resource Include="img\remove.png" />
+    <Resource Include="img\disable.png" />
+    <Resource Include="img\lock.png" />
+    <Resource Include="img\table.png" />
+    <Resource Include="img\stats.png" />
+    <Resource Include="img\table%281%29.png" />
+    <Resource Include="img\save.png" />
+    <Resource Include="img\dodavanje_slike.png" />
+    <Resource Include="img\folder.png" />
+    <Resource Include="img\map-location.png" />
+    <Resource Include="img\store.png" />
+    <Resource Include="img\LocalInsider-hero.png" />
+    <Resource Include="img\slikaa.jpg" />
+    <Resource Include="img\Screenshot_3.png" />
+    <Content Include="help\index.htm" />
+    <Content Include="model\Prezime.htm" />
+    <Content Include="sound\sound1.mp3" />
+    <Content Include="sound\sound1.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,58 @@
+﻿<Window x:Class="WpfApp1.TabelaLokali"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+         Title="TableExample" Height="200" Width="636" Name="winTable">
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            
+        </Grid.ColumnDefinitions>
+        <Label>Filter po nazivu</Label>
+        <TextBox Grid.Column="1" TextChanged="TextBox_TextChanged"  FontSize="14" x:Name="txtFilter"></TextBox>
+        <Label Grid.Column="2">Pretraga po id</Label>
+        <TextBox Grid.Column="3" TextChanged="TextBox_TextChanged_1" FontSize="14" x:Name="txtPretraga"></TextBox>
+        <DataGrid x:Name="dgrMain" Grid.Column="0" Grid.ColumnSpan="9" Grid.Row="1" ItemsSource="{Binding Path=Lokali}" IsReadOnly="True" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True"  Grid.RowSpan="2">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Indeks" Width="SizeToCells">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="ID : "/>
+                                <TextBlock Text="{Binding Id}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Naziv" Width="SizeToCells" Binding="{Binding Naziv }" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Opis" Width="SizeToCells" Binding="{Binding Opis}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tip" Width="SizeToCells" Binding="{Binding Tip}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Etikete" Width="SizeToCells" Binding="{Binding Etikete}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Dostupan za hendikepirane" Width="SizeToCells" Binding="{Binding Hendikepirani}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Dozvoljeno pusenje" Width="SizeToCells" Binding="{Binding Pusenje}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kategorije cena" Width="SizeToCells" Binding="{Binding Kategorije}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Sluzenje alkohola" Width="SizeToCells" Binding="{Binding Alkohol}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Datum otvaranja" Width="SizeToCells" Binding="{Binding Datum}"></DataGridTextColumn>
+                
+            </DataGrid.Columns>
+
+           
+        </DataGrid>
+        
+    </Grid>
+</Window>
